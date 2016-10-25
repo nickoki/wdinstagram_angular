@@ -28,6 +28,7 @@
     .controller("InstaShowController", [
       "InstaFactory",
       "$stateParams",
+      "$state",
       InstaShowControllerFunction
     ])
     .controller("InstaEditController", [
@@ -35,14 +36,20 @@
       "$stateParams",
       "$state",
       InstaEditControllerFunction
-    ]);
+    ])
+    // .controller("InstaDestroyController", [
+    //   "InstaFactory",
+    //   "$stateParams",
+    //   InstaDestroyControllerFunction
+    // ]);
 
 
 
   // Factory Function
   function InstaFactoryFunction($resource) {
     return $resource("http://localhost:3000/entries/:id", {}, {
-      update: { method: "PUT" }
+      update: { method: "PUT" },
+      destroy: { method: "DELETE" }
     })
   }
 
@@ -62,8 +69,14 @@
     }
   }
 
-  function InstaShowControllerFunction(InstaFactory, $stateParams) {
+  function InstaShowControllerFunction(InstaFactory, $stateParams, $state) {
     this.post = InstaFactory.get({id: $stateParams.id})
+    // Delete function for posts
+    this.destroy = function() {
+      this.post.$delete({id: $stateParams.id}).then(function() {
+        $state.go("instaIndex")
+      })
+    }
   }
 
   function InstaEditControllerFunction(InstaFactory, $stateParams, $state) {
@@ -74,6 +87,15 @@
       })
     }
   }
+
+  // function InstaDestroyControllerFunction(InstaFactory, $stateParams) {
+  //   this.post = InstaFactory.get({id: $stateParams.id})
+  //   this.destroy = function() {
+  //     this.post.$delete({id: $stateParams.id}).then(function() {
+  //       $state.go("instaIndex")
+  //     })
+  //   }
+  // }
 
 
 
