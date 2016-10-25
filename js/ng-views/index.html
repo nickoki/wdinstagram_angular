@@ -1,0 +1,6 @@
+<h1>Home Feed</h1>
+
+<div data-ng-repeat="post in vm.posts | orderBy: '-createdat'">
+  <!-- <a data-ui-sref="grumbleShow({id: post.id})">{{post.author}}</a> -->
+  <img ng-src="{{post.photo_url}}" width="600px"/>
+</div>
