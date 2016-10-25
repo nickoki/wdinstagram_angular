@@ -20,6 +20,11 @@
       "InstaFactory",
       InstaIndexControllerFunction
     ])
+    .controller("InstaNewController", [
+      "InstaFactory",
+      "$state",
+      InstaNewControllerFunction
+    ])
     .controller("InstaShowController", [
       "InstaFactory",
       "$stateParams",
@@ -35,13 +40,23 @@
     })
   }
 
+
+
   // Controller Functions
   function InstaIndexControllerFunction(InstaFactory) {
     this.posts = InstaFactory.query()
   }
 
+  function InstaNewControllerFunction(InstaFactory, $state) {
+    this.post = new InstaFactory()
+    this.create = function() {
+      this.post.$save().then(function(post) {
+        $state.go("instaShow", {id: post.id})
+      })
+    }
+  }
+
   function InstaShowControllerFunction(InstaFactory, $stateParams) {
-    console.log("POSTS");
     this.post = InstaFactory.get({id: $stateParams.id})
   }
 
@@ -54,6 +69,12 @@
       url: "/",
       templateUrl: "js/ng-views/index.html",
       controller: "InstaIndexController",
+      controllerAs: "vm"
+    })
+    .state("instaNew", {
+      url: "/new",
+      templateUrl: "js/ng-views/new.html",
+      controller: "InstaNewController",
       controllerAs: "vm"
     })
     .state("instaShow", {

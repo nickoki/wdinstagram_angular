@@ -1,6 +1,8 @@
 <h1>Home Feed</h1>
 
-<div data-ng-repeat="post in vm.posts | orderBy: '-createdat'">
+<a data-ui-sref="instaNew()">New Post</a>
+
+<div data-ng-repeat="post in vm.posts | orderBy: '-created_at'">
   <!-- <a data-ui-sref="grumbleShow({id: post.id})">{{post.author}}</a> -->
-  <img ng-src="{{post.photo_url}}" width="600px"/>
+  <a data-ui-sref="instaShow({id: post.id})"><img ng-src="{{post.photo_url}}" width="600px" /></a>
 </div>
