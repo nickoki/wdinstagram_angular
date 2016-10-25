@@ -29,6 +29,12 @@
       "InstaFactory",
       "$stateParams",
       InstaShowControllerFunction
+    ])
+    .controller("InstaEditController", [
+      "InstaFactory",
+      "$stateParams",
+      "$state",
+      InstaEditControllerFunction
     ]);
 
 
@@ -60,6 +66,15 @@
     this.post = InstaFactory.get({id: $stateParams.id})
   }
 
+  function InstaEditControllerFunction(InstaFactory, $stateParams, $state) {
+    this.post = InstaFactory.get({id: $stateParams.id})
+    this.update = function() {
+      this.post.$update({id: $stateParams.id}).then(function(post) {
+        $state.go("instaShow", {id: post.id})
+      })
+    }
+  }
+
 
 
   // Router
@@ -81,6 +96,12 @@
       url: "/:id",
       templateUrl: "js/ng-views/show.html",
       controller: "InstaShowController",
+      controllerAs: "vm"
+    })
+    .state("instaEdit", {
+      url: "/:id/edit",
+      templateUrl: "js/ng-views/edit.html",
+      controller: "InstaEditController",
       controllerAs: "vm"
     })
   };

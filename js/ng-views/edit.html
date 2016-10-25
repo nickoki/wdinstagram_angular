@@ -1,0 +1,10 @@
+<h2>Edit Post</h2>
+
+<img ng-src="{{vm.post.photo_url}}" class="edit-img"/>
+
+<form>
+  <input placeholder="Image URL" type="text" data-ng-model="vm.post.photo_url" value="vm.post.photo_url" />
+  <input placeholder="Author" type="text" data-ng-model="vm.post.author" value="vm.post.author" />
+  <textarea placeholder="Body" type="text" data-ng-model="vm.post.body" value="vm.post.body"></textarea>
+  <button type="button" data-ng-click="vm.update()">Submit</button>
+</form>

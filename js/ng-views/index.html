@@ -4,5 +4,5 @@
 
 <div data-ng-repeat="post in vm.posts | orderBy: '-created_at'">
   <!-- <a data-ui-sref="grumbleShow({id: post.id})">{{post.author}}</a> -->
-  <a data-ui-sref="instaShow({id: post.id})"><img ng-src="{{post.photo_url}}" width="600px" /></a>
+  <a data-ui-sref="instaShow({id: post.id})"><img ng-src="{{post.photo_url}}" class="index-img" width="600px" /></a>
 </div>
