@@ -19,6 +19,11 @@
     .controller("InstaIndexController", [
       "InstaFactory",
       InstaIndexControllerFunction
+    ])
+    .controller("InstaShowController", [
+      "InstaFactory",
+      "$stateParams",
+      InstaShowControllerFunction
     ]);
 
 
@@ -35,6 +40,11 @@
     this.posts = InstaFactory.query()
   }
 
+  function InstaShowControllerFunction(InstaFactory, $stateParams) {
+    console.log("POSTS");
+    this.post = InstaFactory.get({id: $stateParams.id})
+  }
+
 
 
   // Router
@@ -44,6 +54,12 @@
       url: "/",
       templateUrl: "js/ng-views/index.html",
       controller: "InstaIndexController",
+      controllerAs: "vm"
+    })
+    .state("instaShow", {
+      url: "/:id",
+      templateUrl: "js/ng-views/show.html",
+      controller: "InstaShowController",
       controllerAs: "vm"
     })
   };
