@@ -6,5 +6,6 @@
     <input placeholder="Author Name" type="text" data-ng-model="vm.post.author" value="vm.post.author" />
     <textarea placeholder="Body" type="text" data-ng-model="vm.post.body" value="vm.post.body"></textarea>
     <button type="button" data-ng-click="vm.update()">Submit</button>
+    <button type="button" data-ui-sref="instaShow({id: vm.post.id})">Cancel</button>
   </form>
 </div>

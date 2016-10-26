@@ -93,6 +93,7 @@ form textarea {
 }
 
 form button {
+  margin: 1em 0;
   border: 1px solid #000;
   border-radius: 3px;
   padding: 1em;
