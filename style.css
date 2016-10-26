@@ -1,0 +1,109 @@
+body {
+  background: #fafafa;
+  margin: 0;
+  font-family: "Helvetica", sans-serif;
+  font-size: 11pt;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+  height: 31px;
+  background: #fff;
+}
+
+nav a,
+.options a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 3px;
+  margin: 0 1em;
+  padding: 1em;
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+}
+
+nav a:hover,
+.options a:hover {
+  background: #fafafa;
+  transition: 0.6s;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.post img {
+  width: 600px;
+}
+
+.show img {
+  width: 900px;
+}
+
+.author {
+  padding: 1em;
+  height:20px;
+  font-weight: 600;
+}
+
+.caption {
+  padding: 1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+form input,
+form textarea {
+  margin: 1em 0;
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding: 1em;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button {
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding: 1em;
+  background: #fff;
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #fafafa;
+  transition: 0.6s;
+}
